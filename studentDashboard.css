@@ -1,90 +1,128 @@
-body {
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-margin: 0;
-background: linear-gradient(to bottom, #053d02, #187f13, #18d22e, #60ff04);
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(to bottom,#053d02,#187f13,#18d22e,#60ff04);
 }
-.img_container {
-text-align: center;
-width: 200px; /* Adjust the width of the container as needed */
-height: 200px; /* Adjust the height of the container as needed */
-margin: 0 auto; /* Center the container horizontally */
-margin-bottom: 5px; /* Adjust margin as needed */
-}
-.img_container img {
-max-width: 100%; /* Set the maximum width of the image to 100% of the container */
-max-height: 100%; /* Set the maximum height of the image to 100% of the container */
-}
-.dashboard_container {
-text-align: center;
-}
-form{
-background: rgba(255, 255, 255, 0.33); /* RGBA color with 80% opacity */
-width: 550px;
-height: none;
-padding: 75px 50px;
-position:absolute;
-left: 50%;
-top: 50%;
-transform: translate(-50%,-50%);
-}
-p{
-text-align: center;
-margin-bottom: 5px;
-color: #ffff;
-font-size: 25px;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+.profile_img{
+    width: 30%;
+    height: 20%;
+  }
+  .welcomeLogo {
+  width: 200px;
+  height: 10%;
+  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  }
+  .logo {
+    width: 300px;
+    margin: auto;
+    height: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
 .ClaimRewardBtn{
-height: 45px;
-width: 100%;
-margin-top: 15px;
-border: none;
-outline: none;
-background: #053d02;
-background-size: 200%;
-color: white;
-font-size: 16px;
+    height: 60px;
+    width: 40%;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: none;
+    outline: none;
+    background: #053d02;
+    background-size: 200%;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 10px;
 }
 .ClaimRewardBtn:hover {
-background-color: #0bd830; /* New background color when hovering */
-background-position: center;
-font-size: 16px;
-color: black;
+    background-color: #0bd830; 
+    background-position: center;
+    font-size: 17px;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 .RewardsInfoBtn{
-height: 45px;
-width: 100%;
-margin-top: 15px;
-border: none;
-outline: none;
-background: #053d02;
-background-size: 200%;
-color: white;
-font-size: 16px;
+    height: 60px;
+    width: 40%;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: none;
+    outline: none;
+    background: #053d02;
+    background-size: 200%;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 10px;
 }
 .RewardsInfoBtn:hover {
-background-color: #0bd830; /* New background color when hovering */
-background-position: center;
-font-size: 16px;
-color: black;
+    background-color: #0bd830; 
+    background-position: center;
+    font-size: 17px;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 .LogoutBtn{
-height: 45px;
-width: 100%;
-margin-top: 15px;
-border: none;
-outline: none;
-background: #053d02;
-background-size: 200%;
-color: white;
-font-size: 16px;
+    height: 60px;
+    width: 40%;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: none;
+    outline: none;
+    background: #053d02;
+    background-size: 200%;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 10px;
 }
 .LogoutBtn:hover {
-background-color: #676767; /* New background color when hovering */
-background-position: center;
-font-size: 16px;
-color: white;
+    background-color: #0bd830; 
+    background-position: center;
+    font-size: 17px;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
+
+.form-container {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+  }
+.login-form{
+    width: 400px;
+    height: 550px;
+}
+  form {
+    background-color: linear-gradient(to bottom,#053d02,#187f13,#18d22e,#60ff04);
+    border-radius: 5%;
+    text-align: center;
+    width: 50%;
+    box-shadow: rgba(0, 0, 0, 0.637) 0px 1px 4px;
+  }
