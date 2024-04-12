@@ -19,12 +19,15 @@
             <div class="login-header">
                 <img src="logoEarn.png" class="logo" alt="logo">
                 <div class="login-body">
-                  <!-- Profile Image Container -->
-                <div class="profile-img-container">
-                    <img src="profile.png" alt="Profile" class="profile_img" id="profile-preview">
+                    <div class="profile-and-id-container">
+                    <div class="profile-img-container">
+                        <img src="profile.png" alt="Profile" class="profile_img" id="profile-preview">
+                    </div>
+                    <div class="Id-num-container">
+                        <label for="idNumber">ID number:</label>
+                        <input type="text" class="textIdnum" id="idNumber" placeholder="ID number" readonly>
+                    </div>
                 </div>
-                <!-- End Profile Image Container -->
-
                 <label for="profile-upload" class="profile-label">
                     <span class="upload-text">Upload a photo</span>
                 </label>
@@ -33,9 +36,34 @@
                     <button type="button" class="RewardsInfoBtn" onclick="redirectTorewardsInfo()">Rewards Info</button>
                     <button type="button" class="LogoutBtn" onclick="redirectToindex()">Logout</button>
                 </div>
+            </div>
         </form>
     </div>
     <script>
+                let idNumberInput = null;
+
+        const idNumber = localStorage.getItem('idnumber');
+
+        fetch('https://recycleapi.igotsolutionsph.com/api/getStudentByIdNumber/' + idNumber, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                alert("Error: Unable to fetch student data");
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching student data:', error);
+        })
+        .then(data => {
+            idNumberInput = document.getElementById('idNumber');
+            idNumberInput.value = data.idnumber;
+        });
         // Check if profile image URL is saved in localStorage
         var savedProfileImage = localStorage.getItem('profileImage');
         if (savedProfileImage) {
