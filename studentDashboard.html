@@ -19,7 +19,16 @@
             <div class="login-header">
                 <img src="logoEarn.png" class="logo" alt="logo">
                 <div class="login-body">
-                    <img src="profile.png" alt="Profile" class="profile_img">
+                  <!-- Profile Image Container -->
+                <div class="profile-img-container">
+                    <img src="profile.png" alt="Profile" class="profile_img" id="profile-preview">
+                </div>
+                <!-- End Profile Image Container -->
+
+                <label for="profile-upload" class="profile-label">
+                    <span class="upload-text">Upload a photo</span>
+                </label>
+                    <input type="file" id="profile-upload" accept="image/*" style="display: none;" onchange="previewProfileImage(event)">
                     <button type="button" class="ClaimRewardBtn" onclick="redirectToclaimReward()">Claim Reward</button>
                     <button type="button" class="RewardsInfoBtn" onclick="redirectTorewardsInfo()">Rewards Info</button>
                     <button type="button" class="LogoutBtn" onclick="redirectToindex()">Logout</button>
@@ -27,6 +36,26 @@
         </form>
     </div>
     <script>
+        // Check if profile image URL is saved in localStorage
+        var savedProfileImage = localStorage.getItem('profileImage');
+        if (savedProfileImage) {
+            document.getElementById('profile-preview').src = savedProfileImage;
+        }
+
+        // Function to preview profile image before upload
+        function previewProfileImage(event) {
+            var input = event.target;
+            var reader = new FileReader();
+            reader.onload = function(){
+                var profileImg = document.querySelector('.profile_img');
+                profileImg.src = reader.result;
+
+                // Save profile image URL to localStorage
+                localStorage.setItem('profileImage', reader.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
         function redirectToclaimReward() {
             window.location.href = "claimReward.html";
         }

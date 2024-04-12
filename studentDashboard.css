@@ -26,9 +26,9 @@ body{
   }
 
 .ClaimRewardBtn{
-    height: 60px;
+    height: 50px;
     width: 40%;
-    margin-top: 25px;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -54,9 +54,9 @@ body{
     font-style: normal;
 }
 .RewardsInfoBtn{
-    height: 60px;
+  height: 50px;
     width: 40%;
-    margin-top: 25px;
+    margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -82,9 +82,9 @@ body{
     font-style: normal;
 }
 .LogoutBtn{
-    height: 60px;
+  height: 50px;
     width: 40%;
-    margin-top: 25px;
+    margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -126,3 +126,43 @@ body{
     width: 50%;
     box-shadow: rgba(0, 0, 0, 0.637) 0px 1px 4px;
   }
+
+.upload-text {
+  display: flex;
+  margin-top: 5px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  cursor: pointer;
+  color: white;
+  font-size: 10px;
+}
+
+.upload-container {
+  display: flex;
+  margin-top: 5px;
+  align-items: center;
+  justify-content: center; 
+  cursor: pointer;
+  color: white;
+}
+
+.upload-text {
+  font-size: 10px;
+}
+
+.profile-img-container {
+  width: 120px; 
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 10px auto; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img-container img {
+  width: 100%;
+  height: auto;
+}
