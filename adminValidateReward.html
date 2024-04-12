@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="adminValidateReward.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <title>Redemeed QR History</title>
+</head>
+
+<body>
+    <form>
+        <img src="logoEarn.png" alt="logo" class="logo">
+        <div class="dashboard_container">    
+            <div class="table-container">
+            <table class="studentRewards">
+                <tr>
+                    <th>Student ID</th>
+                    <th>Collected Plastic Bottles</th>
+                    <th>Collected Cans</th>
+                    <th>Equivalent Reward Pts</th>
+                    <th>Status</th>
+                    <th>Unique Identifier</th>
+                </tr>
+                <tbody class="non-scrollable-tbody" id="data"> 
+                </tbody> 
+            </table>
+            </div>
+                </div>
+                <button type="button" class="GoBackBtn" onclick="redirectToadminDashboard()">Go Back</button>
+        </div>
+    </form>
+
+    <script>
+
+        function redirectToadminDashboard() {
+            window.location.href = "adminDashboard.html";
+        }
+
+
+        let listData = [];
+
+        fetch('https://recycleapi.igotsolutionsph.com/api/getQRCodes', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => { return response.json()
+            })
+            .then(data => {
+                listData = data;
+                var temp = '';
+                listData.forEach(element => {
+                    temp += "<tr>";
+                    temp += "<td>" + element.scan_idnumber + "</td>";
+                    temp += "<td>" + element.scan_bottlesCollected + "</td>";
+                    temp += "<td>" + element.scan_cansCollected + "</td>";
+                    temp += "<td>" + element.scan_rewardPts + "</td>";
+                    temp += "<td>" + element.status + "</td>";
+                    temp += "<td>" + element.scan_unique + "</td>";
+                    temp += "</tr>";
+                });
+                document.getElementById('data').innerHTML = temp;
+            })
+
+
+    </script>
+</body>
+
+</html>

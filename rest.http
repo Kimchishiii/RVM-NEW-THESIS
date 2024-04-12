@@ -1,0 +1,30 @@
+GET https://recycleapi.igotsolutionsph.com/api/loginStudent/{32131}
+
+###
+
+POST https://recycleapi.igotsolutionsph.com/api/addQRCode
+content-type: application/json
+
+{
+    "scan_idnumber": 1,
+    "scan_bottlesCollected": 2,
+    "scan_cansCollected": 3,
+    "scan_rewardPts": 13,
+}
+
+###
+
+DELETE https://recycleapi.igotsolutionsph.com/api/deleteAdmin/3
+
+###
+
+PUT https://recycleapi.igotsolutionsph.com/api/updateStudent
+content-type: application/json
+
+{
+    "id": 3,
+    "idnumber": 32131,
+    "bottlesCollected": 2,
+    "cansCollected": 2,
+    "rewardPts": 5
+}
