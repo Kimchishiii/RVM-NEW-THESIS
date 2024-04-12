@@ -1,70 +1,47 @@
-body {
+body{
+    margin: 0;
+    padding: 0;
     min-height: 100vh;
-    background: linear-gradient(to bottom, #053d02, #187f13, #18d22e, #60ff04);
+    background: linear-gradient(to bottom,#053d02,#187f13,#18d22e,#60ff04);
 }
-
-form {
-    background: linear-gradient(to bottom, #053d02, #187f13, #18d22e, #60ff04);
-    width: 100%;
-    height: 100%;
-    padding: 75px 50px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 65px;
-    color: green;
-    font-size: 25px;
-    font-family: cursive;
-    font-weight: 400;
-}
-
 p {
     text-align: left;
-    margin-bottom: 20px;
-    margin-left: 25px;
+    margin-bottom: 5px;
+    margin-left: 65px;
     color: rgb(255, 255, 255);
-    font-size: 40px;
+    font-size: 12px;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 35px;
-    cursor: pointer;
     border-radius: 10px;
-    
 }
-
 .textBoxdiv {
     border: 1px solid none;
-    background-color: whitesmoke;
-    border-bottom: 2px solid rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255) ;
     border-radius: 30px;
     position: relative;
     margin: 0 auto;
+    width: 70%;
+    height: 6%;
 }
 
 .textBoxdiv input {
     background: none;
     border: none;
     outline: none;
-    width: 100%;
+    width: 80%;
+    height: 100%;
     color: black;
-    height: 70px;
-    font-size: 25px;
-    margin-left: 20px;
+    font-size: 15px;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 .loginBtn {    
-    height: 45px;
-    width: 50%;
-    margin-top: 50px;
+    height: 60px;
+    width: 40%;
+    margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -73,12 +50,12 @@ p {
     background: #053d02;
     background-size: 200%;
     color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 50px;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 30px;
 }
 
 .loginBtn:hover {
@@ -89,10 +66,8 @@ p {
 }
 
 .GoBackBtn {
-                
-    text-decoration: none;
-    height: 45px;
-    width: 50%;
+    height: 60px;
+    width: 100%;
     margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
@@ -102,14 +77,12 @@ p {
     background: #053d02;
     background-size: 200%;
     color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 50px;
-    text-align: center;
-    line-height: 45px; 
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 30px;
 }
 
 .GoBackBtn:hover {
@@ -133,36 +106,23 @@ p {
 }
 
 .logo {
-    width: 100%;
+    width: 300px;
     margin: auto;
-    height: 45%;
+    height: 30%;
+    margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
     display: block;
 }
 
-/* Media Query for smaller screens */
-@media screen and (max-width: 600px) {
-    .card {
-        width: 90%;
-        /* Adjust as needed */
-        padding: 10px;
-        /* Adjust as needed */
-    }
+.welcomeLogo {
+    width: 200px;
+    height: 10%;
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
-
-.card {
-    height: 70%;
-    width: 70%;
-}
-
-.card-container {
-    margin: 50% auto 0;
-    display: flex;
-    justify-content: center;
-
-}
-
 .button-container {
     margin: 20px auto 0;
     width: 50%;
@@ -171,3 +131,23 @@ p {
 .button-container input {
     width: 100%; 
 }
+
+.form-container {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+  }
+.login-form{
+    width: 400px;
+    height: 550px;
+}
+.login-body {
+    margin-top: 20px;
+}
+  form {
+    background-color: linear-gradient(to bottom,#053d02,#187f13,#18d22e,#60ff04);
+    border-radius: 5%;
+    text-align: center;
+    width: 50%;
+    box-shadow: rgba(0, 0, 0, 0.637) 0px 1px 4px;
+  }

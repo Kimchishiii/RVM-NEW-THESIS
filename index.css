@@ -76,9 +76,7 @@ p{
     font-weight: 400;
     font-style: normal;
 }
-.logo-container{
-text-align: center; 
-}
+
 .logo {
     width: 300px;
     margin: auto;
@@ -104,10 +102,13 @@ text-align: center;
     width: 400px;
     height: 550px;
 }
+.login-body {
+    margin-top: 10%;
+}
   form {
-    background-color: rgba(255, 255, 255, 0.123);
+    background-color: linear-gradient(to bottom,#053d02,#187f13,#18d22e,#60ff04);
     border-radius: 5%;
     text-align: center;
     width: 50%;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    box-shadow: rgba(0, 0, 0, 0.637) 0px 1px 4px;
   }
