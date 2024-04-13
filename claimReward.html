@@ -1,7 +1,10 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <link rel="icon" type="image/x-icon" href="logoEarn.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="claimReward.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,106 +16,144 @@
 </head>
 
 <body>
-    <form method="post" action="">
-        <div class="container">
-            <h1>REDEEM REWARD</h1>
-            <img src="" id="qrImage">
-            <label for="idNumber">ID number:</label>
-            <input type="text" id="idNumber" placeholder="ID number" readonly>
-            <label for="bottleCount">Number of collected bottles:</label>
-            <input type="text" id="bottleCount" placeholder="Number of collected bottles" readonly>
-            <label for="canCount">Number of collected cans:</label>
-            <input type="text" id="canCount" placeholder="Number of collected cans" readonly>
-            <label for="rewardPoints">Reward points earned:</label>
-            <input type="text" id="rewardPoints" placeholder="Reward points earned" readonly>
-            <input onclick="save()" type="button" value="Claim Reward (QR)" class="GenerateQRBtn" name="GenerateQR_Btn">
+    <div class="form-container">
+        <form class="login-form">
+            <div class="login-header">
+                <img src="logoEarn.png" class="logo" alt="logo">
+                <h3> REDEEM REWARD </h3>
+                <div class="login-body">
+                    <img src="" id="qrImage">
+                    <div class = "idnum-container">
+                        <label for="idNumber" class = "idNumText" >ID number:</label>
+                        <input type="text" class = "idumCont"id="idNumber" placeholder="ID number" readonly>
+                        </div>
+                </div>
+                <div class = "body-container1"> 
+                    <label for="bottleCount">Number of collected bottles:</label>
+                    <input type="text" id="bottleCount" placeholder="Number of collected bottles" readonly>
+                    <label for="canCount" class = "canCount">Number of collected cans:</label>
+                    <input type="text" id="canCount" placeholder="Number of collected cans" readonly>
+                    <label for="rewardPoints" class = "redwardPoints">Reward points earned:</label>
+                    <input type="text" id="rewardPoints" placeholder="Reward points earned" readonly>
+                    <input onclick="save()" type="button" value="Claim Reward (QR)" class="GenerateQRBtn"
+                        name="GenerateQR_Btn">
+                </div>
+                <div class = "body-container4">
+                    <button type="button" class="GoBackBtn" onclick="redirectTostudentDashboard()">Go Back</button>
+                </div>
+        </form>
+    </div>
+    <div id="imgBox">
 
-            <div id="imgBox">
+        <script>
+            function redirectTostudentDashboard() {
+                window.location.href = "studentDashboard.html";
+            }
+            let imgBox = document.getElementById("imgBox");
+            let qrImage = document.getElementById("qrImage");
+            let idNumberInput = null;
+            let bottleCountInput = null;
+            let canCountInput = null;
+            let rewardPointsInput = null;
 
+            const idNumber = localStorage.getItem('idnumber');
 
-                <script>
-                    let imgBox = document.getElementById("imgBox");
-                    let qrImage = document.getElementById("qrImage");
-                    let idNumberInput = null;
-                    let bottleCountInput = null;
-                    let canCountInput = null;
-                    let rewardPointsInput = null;
+            fetch('https://recycleapi.igotsolutionsph.com/api/getStudentByIdNumber/' + idNumber, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
 
-                    const idNumber = localStorage.getItem('idnumber');
-                    
-                    fetch('https://recycleapi.igotsolutionsph.com/api/getStudentByIdNumber/' + idNumber, {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json'
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        alert("Error Login, Check your username or password")
+                    }
+                })
+                .catch(error => {
+                    console.error('Error logging in admin:', error);
+
+                })
+                .then(data => {
+
+                    idNumberInput = document.getElementById('idNumber');
+                    idNumberInput.value = data.idnumber;
+
+                    bottleCountInput = document.getElementById('bottleCount');
+                    bottleCountInput.value = data.bottlesCollected;
+
+                    canCountInput = document.getElementById('canCount');
+                    canCountInput.value = data.cansCollected;
+
+                    rewardPointsInput = document.getElementById('rewardPoints');
+                    rewardPointsInput.value = (data.bottlesCollected / 10) + ((data.cansCollected / 5) * 4)
+                    console.log((+data.bottlesCollected / 10) + ((+data.cansCollected / 5) * 4))
+                })
+
+            function save() {
+                generateQR(generateUniqueIdentifier());
+            }
+
+            function generateUniqueIdentifier() {
+
+                let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let randomString = '';
+                for (let i = 0; i < 8; i++) {
+                    randomString += characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                return randomString;
+            }
+            function generateQR(uniqueIdentifier) {
+                let data = "ID Number: " + idNumberInput.value + ", " +
+                    "Bottles collected: " + bottleCountInput.value + ", " +
+                    "Cans collected: " + canCountInput.value + ", " +
+                    "Reward pts (php): " + rewardPointsInput.value + ", " +
+                    "Unique Identifier: " + uniqueIdentifier + ", " +
+                    "Claimed Date: " + new Date().toDateString() + ", " + " Reminders: Present your QR code to Recycle and Earn admin to claim reward."; // Include date and time in QR code data
+
+                qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(data);
+
+                const dataForm = {
+                    scan_idnumber: idNumberInput.value,
+                    scan_bottlesCollected: bottleCountInput.value,
+                    scan_cansCollected: canCountInput.value,
+                    scan_rewardPts: rewardPointsInput.value,
+                    scan_unique: uniqueIdentifier,
+                }
+
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dataForm)
+                };
+                fetch('https://recycleapi.igotsolutionsph.com/api/addQRCode', options)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
                         }
+                        return response.json();
                     })
-                        .then(response => {
+                    .then(data => {
+                        console.log('Succesfully Saved', data);
 
-                            if (response.ok) {
-                                return response.json();
-                            } else {
-                                alert("Error Login, Check your username or password")
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error logging in admin:', error);
-
-                        })
-                        .then(data => {
-
-                            idNumberInput = document.getElementById('idNumber');
-                            idNumberInput.value = data.idnumber;
-
-                            bottleCountInput = document.getElementById('bottleCount');
-                            bottleCountInput.value = data.bottlesCollected;
-
-                            canCountInput = document.getElementById('canCount');
-                            canCountInput.value = data.cansCollected;
-
-                            rewardPointsInput = document.getElementById('rewardPoints');
-                            rewardPointsInput.value = (data.bottlesCollected / 10) + ((data.cansCollected / 5) * 4)
-                            console.log((+data.bottlesCollected / 10) + ((+data.cansCollected / 5) * 4))
-                        })
-
-                    function save() {
-                        generateQR(generateUniqueIdentifier());
-                    }
-
-                    function generateUniqueIdentifier() {
-                       
-                        let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-                        let randomString = '';
-                        for (let i = 0; i < 8; i++) {
-                            randomString += characters.charAt(Math.floor(Math.random() * characters.length));
+                        const studentForm = {
+                            idnumber: idNumberInput.value,
+                            bottlesCollected: 0,
+                            cansCollected: 0
                         }
-                        return randomString;
-                    }
-                    function generateQR(uniqueIdentifier) {
-                        let data = "ID Number: " + idNumberInput.value + ", " +
-                            "Bottles collected: " + bottleCountInput.value + ", " +
-                            "Cans collected: " + canCountInput.value + ", " +
-                            "Reward pts (php): " + rewardPointsInput.value + ", " +
-                            "Unique Identifier: " + uniqueIdentifier + ", " +
-                            "Claimed Date: " + new Date().toDateString() + ", " + " Reminders: Present your QR code to Recycle and Earn admin to claim reward."; // Include date and time in QR code data
-
-                        qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(data);
-
-                        const dataForm = {
-                            scan_idnumber: idNumberInput.value,
-                            scan_bottlesCollected: bottleCountInput.value,
-                            scan_cansCollected: canCountInput.value,
-                            scan_rewardPts: rewardPointsInput.value,
-                            scan_unique: uniqueIdentifier,
-                        }
-
-                        const options = {
-                            method: 'POST',
+                        const options2 = {
+                            method: 'PUT',
                             headers: {
                                 'Content-Type': 'application/json'
                             },
-                            body: JSON.stringify(dataForm)
+                            body: JSON.stringify(studentForm)
                         };
-                        fetch('https://recycleapi.igotsolutionsph.com/api/addQRCode', options)
+
+                        fetch('https://recycleapi.igotsolutionsph.com/api/updateStudent', options2)
                             .then(response => {
                                 if (!response.ok) {
                                     throw new Error('Network response was not ok');
@@ -120,41 +161,16 @@
                                 return response.json();
                             })
                             .then(data => {
-                                console.log('Succesfully Saved', data);
-
-                                const studentForm = {
-                                    idnumber: idNumberInput.value,
-                                    bottlesCollected: 0,
-                                    cansCollected:0
-                                }
-                                const options2 = {
-                                    method: 'PUT',
-                                    headers: {
-                                        'Content-Type': 'application/json'
-                                    },
-                                    body: JSON.stringify(studentForm)
-                                };
-
-                                fetch('https://recycleapi.igotsolutionsph.com/api/updateStudent', options2)
-                                    .then(response => {
-                                        if (!response.ok) {
-                                            throw new Error('Network response was not ok');
-                                        }
-                                        return response.json();
-                                    })
-                                    .then(data => {
-                                        location.reload();
-                                    })
+                                location.reload();
                             })
-                            .catch(error => {
-                                console.error('There was a problem', error);
-                            })
-                    }
-                </script>
-            </div>
-            <input type="submit" value="Go Back" class="GoBackBtn" name="GoBack_Btn" formaction="studentDashboard.html"
-                target="_blank">
-        </div>
+                    })
+                    .catch(error => {
+                        console.error('There was a problem', error);
+                    })
+            }
+        </script>
+    </div>
+    </div>
     </form>
 </body>
 
