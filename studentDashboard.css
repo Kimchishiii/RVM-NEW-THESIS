@@ -27,84 +27,84 @@ body{
   }
 
 .ClaimRewardBtn{
-    height: 50px;
-    width: 40%;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    border: none;
-    outline: none;
-    background: #053d02;
-    background-size: 200%;
-    color: white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 17px;
-    cursor: pointer;
-    border-radius: 10px;
+  height: 40px;
+  width: 35%;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: none;
+  outline: none;
+  background: #053d02;
+  background-size: 200%;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 30px;
 }
 .ClaimRewardBtn:hover {
     background-color: #0bd830; 
     background-position: center;
-    font-size: 17px;
+    font-size: 10px;
     color: black;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 .RewardsInfoBtn{
-  height: 50px;
-    width: 40%;
-    margin-top: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    border: none;
-    outline: none;
-    background: #053d02;
-    background-size: 200%;
-    color: white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 17px;
-    cursor: pointer;
-    border-radius: 10px;
+  height: 40px;
+  width: 35%;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: none;
+  outline: none;
+  background: #053d02;
+  background-size: 200%;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 30px;
 }
 .RewardsInfoBtn:hover {
     background-color: #0bd830; 
     background-position: center;
-    font-size: 17px;
+    font-size: 10px;
     color: black;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 .LogoutBtn{
-  height: 50px;
-    width: 40%;
-    margin-top: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    border: none;
-    outline: none;
-    background: #053d02;
-    background-size: 200%;
-    color: white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 17px;
-    cursor: pointer;
-    border-radius: 10px;
+  height: 40px;
+  width: 35%;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: none;
+  outline: none;
+  background: #053d02;
+  background-size: 200%;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 30px;
 }
 .LogoutBtn:hover {
     background-color: #0bd830; 
     background-position: center;
-    font-size: 17px;
+    font-size: 10px;
     color: black;
     font-family: "Poppins", sans-serif;
     font-weight: 400;

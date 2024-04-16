@@ -1,5 +1,10 @@
-<html>
-    <head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <link rel="icon" type="image/x-icon" href="logoEarn.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="rewardsInfo.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -8,15 +13,23 @@
         <title>Rewards Information</title>
     </head>
     <body>
-        <form>
-            <h1>REWARDS INFORMATION</h1>
-            </div>
-            <div class="rewardInfoImg_container">
-                <img src="rewardInfo.png" alt="rewardGuide" class="rewardInfo_img">
-            </div>
-            <div class="claimBtn_container">
-                <input type="submit" value="Go Back" class="GoBackBtn" name="GoBack_Btn" formaction="studentDashboard.html" target="_blank">
-            </div>
-        </form>
+        <div class="form-container">
+            <form class="login-form">
+                <div class="login-header">
+                    <img src="logoEarn.png" class="logo" alt="logo">
+                    <h4 style="color: rgb(255, 255, 255);  font-family: Poppins, sans-serif;
+                    font-weight: 400; font-style: normal; font-size: 15px;"> Rewards Information</h4>
+                    <div class="login-body">
+                        <img src="rewardInfo.png" alt="rewardGuide" class="rewardInfo_img">
+                    </div>
+                <button type="button" class="GoBackBtn" onclick="redirectTostudentDashboard()">Go Back</button>
+            </form>
+            <script>
+
+                function redirectTostudentDashboard() {
+                    window.location.href = "studentDashboard.html";
+                }
+                </script>
+        </div>
     </body>
 </html>

@@ -1,10 +1,8 @@
             body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
                 margin: 0;
-                background: linear-gradient(to bottom, #053d02, #187f13, #18d22e, #60ff04);
+                padding: 0;
+                min-height: 100vh;
+                background: linear-gradient(to bottom,#053d02,#187f13,#18d22e,#60ff04);
             }
             h1{
                 text-align: center;
@@ -13,41 +11,85 @@
                 font-size: 45px;
                 font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;                
             }
-            form{
-                background: rgba(255, 255, 255, 0); /* RGBA color with 80% opacity */
-                width: 550px;
-                height: 580px;
-                padding: 75px 50px;
-                position:absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%,-50%);
+            .rewardInfo_img {
+                width: 220px;
+                height: 250px;
             }
-            .rewardInfoImg_container {
+            .rewardInfo_imgcontainer {
                 text-align: center;
-                width: 350px; /* Adjust the width of the container as needed */
-                height: 350px; /* Adjust the height of the container as needed */
+                width: 100px; /* Adjust the width of the container as needed */
+                height: 150px; /* Adjust the height of the container as needed */
                 margin: 0 auto; /* Center the container horizontally */
                 margin-bottom: 5px; /* Adjust margin as needed */
             }
-            .rewardInfoImg_container img {
+            .rewardInfo_imgcontainer img {
                 max-width: 100%; /* Set the maximum width of the image to 100% of the container */
                 max-height: 100%; /* Set the maximum height of the image to 100% of the container */
             }
-            .GoBackBtn{
-                height: 45px;
-                width: 100%;
+            .GoBackBtn {
+                height: 40px;
+                width: 35%;
                 margin-top: 15px;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
                 border: none;
                 outline: none;
                 background: #053d02;
                 background-size: 200%;
                 color: white;
-                font-size: 16px;
+                font-family: "Poppins", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 10px;
+                cursor: pointer;
+                border-radius: 30px;
             }
+            
             .GoBackBtn:hover {
-                background-color: #0bd830; /* New background color when hovering */
+                background-color: #0bd830;
                 background-position: right;
-                font-size: 16px;
-                color: black;
+                font-size: 10px;
+                color: rgb(0, 0, 0);
             }
+
+            .logo {
+                width: 250px;
+                margin: auto;
+                height: 35%;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            .content{
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .form-container {
+                display: grid;
+                place-items: center;
+                min-height: 100vh;
+              }
+            .login-form{
+                width: 400px;
+                height: 550px;
+            }
+            .login-body {
+                margin-top: 5%;
+            }
+            
+            .login-header {
+            
+                margin-top: 2%;
+            }
+              form {
+                background-color: linear-gradient(to bottom,#053d02,#187f13,#18d22e,#60ff04);
+                border-radius: 5%;
+                text-align: center;
+                width: 50%;
+                box-shadow: rgba(0, 0, 0, 0.637) 0px 1px 4px;
+              }
+          

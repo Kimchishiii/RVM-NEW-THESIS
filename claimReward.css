@@ -5,10 +5,6 @@ body {
     width:100%;
     background: linear-gradient(to bottom,#053d02,#187f13,#18d22e,#60ff04);
 }
-.h5{
-    color: black;
-    font-size: 10px;
-}
 h1{
     text-align: center;
     margin-bottom: 15px;
@@ -16,13 +12,7 @@ h1{
     font-size: 25px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;                
 }
-p{
-    text-align: left;
-    margin-bottom: 5px;
-    color: white;
-    font-size: 18px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-}
+
 .container img {
     max-width: 150px;
     max-height: 150px;
@@ -255,6 +245,10 @@ p{
 
 .idNumText {
     color: white;
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+    font-style: normal; 
+    font-size: 13.5px;
 }
 
 .idumCont {
@@ -262,6 +256,10 @@ p{
     background: none;
     border: none;
     width: 25%;
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+    font-style: normal; 
+    font-size: 13.5px;
 }
 
 .canCount {
@@ -281,7 +279,6 @@ p{
     background-color: #ffffff;
 }
 .modal-header{
-    height: 20%;
     background-color: #ffffff;
 }
 

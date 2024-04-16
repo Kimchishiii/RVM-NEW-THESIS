@@ -6,7 +6,7 @@ body{
 }
 p {
     text-align: left;
-    margin-bottom: 5px;
+    margin-bottom: 13px;
     margin-left: 65px;
     color: rgb(255, 255, 255);
     font-size: 12px;
@@ -22,7 +22,7 @@ p {
     position: relative;
     margin: 0 auto;
     width: 70%;
-    height: 6%;
+    height: 8%;
 }
 
 .textBoxdiv input {
