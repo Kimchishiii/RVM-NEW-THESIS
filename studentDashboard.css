@@ -6,7 +6,7 @@ body{
 }
 .profile_img{
     width: 30%;
-    height: 20%;
+    height: 50%;
   }
   .welcomeLogo {
   width: 200px;
@@ -17,9 +17,10 @@ body{
   display: block;
   }
   .logo {
-    width: 300px;
+    width: 220px;
     margin: auto;
-    height: 30%;
+    height: 25%;
+    margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -28,7 +29,7 @@ body{
 .ClaimRewardBtn{
     height: 50px;
     width: 40%;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -119,7 +120,7 @@ body{
     width: 400px;
     height: 550px;
 }
-  form {
+form {
     background-color: linear-gradient(to bottom,#053d02,#187f13,#18d22e,#60ff04);
     border-radius: 5%;
     text-align: center;
@@ -174,15 +175,30 @@ body{
 }
 
 .Id-num-container {
+  margin-top: 2%;
   flex-grow: 1; 
-  background-color: yellow; 
 }
 
 .Id-num-container label {
   margin-bottom: 5px;
 }
 .textIdnum {
-  width: 30%;
-  background-color: rgba(255, 255, 0, 0.5); /* Yellow color with 50% opacity */
-  border: none; /* Remove border */
+  width: 35%;
+  text-align: center;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  border: transparent;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+}
+.idnumColor{
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 17px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+
 }

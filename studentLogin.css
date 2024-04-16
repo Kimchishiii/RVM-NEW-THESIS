@@ -106,10 +106,9 @@ p {
 }
 
 .logo {
-    width: 300px;
+    width: 250px;
     margin: auto;
-    height: 30%;
-    margin-top: 10%;
+    height: 35%;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -143,6 +142,10 @@ p {
 }
 .login-body {
     margin-top: 20px;
+}
+.login-header {
+
+    margin-top: 15%;
 }
   form {
     background-color: linear-gradient(to bottom,#053d02,#187f13,#18d22e,#60ff04);

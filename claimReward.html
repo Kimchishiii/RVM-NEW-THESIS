@@ -11,7 +11,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Claim Reward</title>
 </head>
 
@@ -20,116 +21,169 @@
         <form class="login-form">
             <div class="login-header">
                 <img src="logoEarn.png" class="logo" alt="logo">
-                <h3> REDEEM REWARD </h3>
+                <img src="Redeem Time.png" class="redeem-pic" alt="logo">
                 <div class="login-body">
-                    <img src="" id="qrImage">
-                    <div class = "idnum-container">
-                        <label for="idNumber" class = "idNumText" >ID number:</label>
-                        <input type="text" class = "idumCont"id="idNumber" placeholder="ID number" readonly>
-                        </div>
+                    <div class="idnum-container">
+                        <label for="idNumber" class="idNumText">ID number:</label>
+                        <input type="text" class="idumCont" id="idNumber" placeholder="ID number" readonly>
+                    </div>
                 </div>
-                <div class = "body-container1"> 
-                    <label for="bottleCount">Number of collected bottles:</label>
-                    <input type="text" id="bottleCount" placeholder="Number of collected bottles" readonly>
-                    <label for="canCount" class = "canCount">Number of collected cans:</label>
-                    <input type="text" id="canCount" placeholder="Number of collected cans" readonly>
-                    <label for="rewardPoints" class = "redwardPoints">Reward points earned:</label>
-                    <input type="text" id="rewardPoints" placeholder="Reward points earned" readonly>
+                <div class="body-container1">
+                    <label for="bottleCount" class="text-Color">Total Water Bottle/s Collected:</label>
+                    <input type="text" class="bottleCount" id="bottleCount" placeholder="Number of collected bottles"
+                        readonly>
+                    <label for="canCount" class="text-Color">Total Aluminum Cans Collected:</label>
+                    <input type="text" class="bottleCount" id="canCount" placeholder="Number of collected cans"
+                        readonly>
+                    <label for="rewardPoints" class="text-Color">Total Reward Points Earned:</label>
+                    <input type="text" class="bottleCount" id="rewardPoints" placeholder="Reward points earned"
+                        readonly>
+                </div>
+                <div class="body-container4">
                     <input onclick="save()" type="button" value="Claim Reward (QR)" class="GenerateQRBtn"
-                        name="GenerateQR_Btn">
-                </div>
-                <div class = "body-container4">
+                        name="GenraeteQR_Btn">
                     <button type="button" class="GoBackBtn" onclick="redirectTostudentDashboard()">Go Back</button>
                 </div>
         </form>
     </div>
-    <div id="imgBox">
+    </div>
+    </form>
+    <button hidden="true" id="qrbtn" type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
+        Launch demo modal
+    </button>
 
-        <script>
-            function redirectTostudentDashboard() {
-                window.location.href = "studentDashboard.html";
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4> Scan </h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    <img src="" id="qrImage">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button hidden = "true" id="noPoints" type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#exampleModal2">
+        Launch demo modal
+    </button>
+
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    <h5>Oops! It looks like you dont have not Enough Points to redeem. Recycle more and Try Again!</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        function redirectTostudentDashboard() {
+            window.location.href = "studentDashboard.html";
+        }
+        let imgBox = document.getElementById("imgBox");
+        let qrImage = document.getElementById("qrImage");
+        let idNumberInput = null;
+        let bottleCountInput = null;
+        let canCountInput = null;
+        let rewardPointsInput = null;
+
+        const idNumber = localStorage.getItem('idnumber');
+
+        fetch('https://recycleapi.igotsolutionsph.com/api/getStudentByIdNumber/' + idNumber, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
             }
-            let imgBox = document.getElementById("imgBox");
-            let qrImage = document.getElementById("qrImage");
-            let idNumberInput = null;
-            let bottleCountInput = null;
-            let canCountInput = null;
-            let rewardPointsInput = null;
+        })
+            .then(response => {
 
-            const idNumber = localStorage.getItem('idnumber');
-
-            fetch('https://recycleapi.igotsolutionsph.com/api/getStudentByIdNumber/' + idNumber, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    alert("Error Login, Check your username or password")
                 }
             })
-                .then(response => {
+            .catch(error => {
+                console.error('Error logging in admin:', error);
 
-                    if (response.ok) {
-                        return response.json();
-                    } else {
-                        alert("Error Login, Check your username or password")
-                    }
-                })
-                .catch(error => {
-                    console.error('Error logging in admin:', error);
+            })
+            .then(data => {
 
-                })
-                .then(data => {
+                idNumberInput = document.getElementById('idNumber');
+                idNumberInput.value = data.idnumber;
 
-                    idNumberInput = document.getElementById('idNumber');
-                    idNumberInput.value = data.idnumber;
+                bottleCountInput = document.getElementById('bottleCount');
+                bottleCountInput.value = data.bottlesCollected;
 
-                    bottleCountInput = document.getElementById('bottleCount');
-                    bottleCountInput.value = data.bottlesCollected;
+                canCountInput = document.getElementById('canCount');
+                canCountInput.value = data.cansCollected;
 
-                    canCountInput = document.getElementById('canCount');
-                    canCountInput.value = data.cansCollected;
+                rewardPointsInput = document.getElementById('rewardPoints');
+                rewardPointsInput.value = (data.bottlesCollected / 10) + ((data.cansCollected / 5) * 4)
+                console.log((+data.bottlesCollected / 10) + ((+data.cansCollected / 5) * 4))
+            })
 
-                    rewardPointsInput = document.getElementById('rewardPoints');
-                    rewardPointsInput.value = (data.bottlesCollected / 10) + ((data.cansCollected / 5) * 4)
-                    console.log((+data.bottlesCollected / 10) + ((+data.cansCollected / 5) * 4))
-                })
+        function viewQR() {
+            document.getElementById("qrbtn").click();
+        }
+        function save() {
+            generateQR(generateUniqueIdentifier());
+        }
 
-            function save() {
-                generateQR(generateUniqueIdentifier());
+        function generateUniqueIdentifier() {
+
+            let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let randomString = '';
+            for (let i = 0; i < 8; i++) {
+                randomString += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return randomString;
+        }
+
+        function popUpNoPoints(){
+            document.getElementById("noPoints").click();
+
+        }
+
+
+        function generateQR(uniqueIdentifier) {
+            let data = "ID Number: " + idNumberInput.value + ", " +
+                "Bottles collected: " + bottleCountInput.value + ", " +
+                "Cans collected: " + canCountInput.value + ", " +
+                "Reward pts (php): " + rewardPointsInput.value + ", " +
+                "Unique Identifier: " + uniqueIdentifier + ", " +
+                "Claimed Date: " + new Date().toDateString() + ", " + " Reminders: Present your QR code to Recycle and Earn admin to claim reward."; // Include date and time in QR code data
+
+            qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(data);
+            const dataForm = {
+                scan_idnumber: idNumberInput.value,
+                scan_bottlesCollected: bottleCountInput.value,
+                scan_cansCollected: canCountInput.value,
+                scan_rewardPts: rewardPointsInput.value,
+                scan_unique: uniqueIdentifier,
             }
 
-            function generateUniqueIdentifier() {
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataForm)
+            };
 
-                let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-                let randomString = '';
-                for (let i = 0; i < 8; i++) {
-                    randomString += characters.charAt(Math.floor(Math.random() * characters.length));
-                }
-                return randomString;
-            }
-            function generateQR(uniqueIdentifier) {
-                let data = "ID Number: " + idNumberInput.value + ", " +
-                    "Bottles collected: " + bottleCountInput.value + ", " +
-                    "Cans collected: " + canCountInput.value + ", " +
-                    "Reward pts (php): " + rewardPointsInput.value + ", " +
-                    "Unique Identifier: " + uniqueIdentifier + ", " +
-                    "Claimed Date: " + new Date().toDateString() + ", " + " Reminders: Present your QR code to Recycle and Earn admin to claim reward."; // Include date and time in QR code data
-
-                qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(data);
-
-                const dataForm = {
-                    scan_idnumber: idNumberInput.value,
-                    scan_bottlesCollected: bottleCountInput.value,
-                    scan_cansCollected: canCountInput.value,
-                    scan_rewardPts: rewardPointsInput.value,
-                    scan_unique: uniqueIdentifier,
-                }
-
-                const options = {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(dataForm)
-                };
+            if (rewardPointsInput.value > 0) {
                 fetch('https://recycleapi.igotsolutionsph.com/api/addQRCode', options)
                     .then(response => {
                         if (!response.ok) {
@@ -161,17 +215,23 @@
                                 return response.json();
                             })
                             .then(data => {
-                                location.reload();
+                                bottleCountInput.value = 0;
+                                canCountInput.value = 0;
+                                rewardPointsInput.value = 0;
                             })
+
+                            viewQR();
                     })
                     .catch(error => {
                         console.error('There was a problem', error);
                     })
             }
-        </script>
-    </div>
-    </div>
-    </form>
+            else {
+                popUpNoPoints();
+            }
+        }
+
+    </script>
 </body>
 
 </html>

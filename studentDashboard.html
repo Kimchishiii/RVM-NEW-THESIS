@@ -18,18 +18,14 @@
             <div class="login-header">
                 <img src="logoEarn.png" class="logo" alt="logo">
                 <div class="login-body">
-                    <div class="profile-and-id-container">
                     <div class="profile-img-container">
-                        <img src="profile.png" alt="Profile" class="profile_img" id="profile-preview">
+                        <img src="logouclm.png" alt="Profile" class="profile_img" id="profile-preview">
                     </div>
                     <div class="Id-num-container">
-                        <label for="idNumber">ID number:</label>
+                        <label for="idNumber"class = "idnumColor">ID number:</label>
                         <input type="text" class="textIdnum" id="idNumber" placeholder="ID number" readonly>
                     </div>
                 </div>
-                <label for="profile-upload" class="profile-label">
-                    <span class="upload-text">Upload a photo</span>
-                </label>
                     <input type="file" id="profile-upload" accept="image/*" style="display: none;" onchange="previewProfileImage(event)">
                     <button type="button" class="ClaimRewardBtn" onclick="redirectToclaimReward()">Claim Reward</button>
                     <button type="button" class="RewardsInfoBtn" onclick="redirectTorewardsInfo()">Rewards Info</button>

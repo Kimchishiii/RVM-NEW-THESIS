@@ -13,13 +13,13 @@ body{
     margin-right: auto;
     display: block;
 }
-h1{
+h5{
     text-align: center;
-    margin-bottom: 65px;
-    color: yellow;
-    font-size: 45px;
-    font-family: cursive;                
+    color: rgb(236, 255, 63);
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
+    font-style: normal;
 }
 p {
     font-family: "Poppins", sans-serif;
@@ -116,14 +116,14 @@ p {
   }
   
   .login-header{
-    margin-top: 10%;
+    margin-top: 15%;
   }
   .login-form{
     width: 400px;
     height: 550px;
 }
 .login-body {
-    margin-top: 10%;
+    margin-top: 5%;
 }
   form {
     background-color: linear-gradient(to bottom,#053d02,#187f13,#18d22e,#60ff04);
