@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="adminLogin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
     <title>Welcome Admin!</title>
 </head>
 <body>
@@ -26,21 +28,20 @@
                     <div class="password_txtbox">
                         <input type="text" placeholder="Enter password" name="admin_password">
                     </div>
-                    <div class = "button-cont">
+                    <div class="button-cont">
                         <input type="submit" value="Login" class="loginBtn" name="login_Btn">
                         <button type="button" class="GoBackBtn" onclick="redirectToIndex()">Go Back</button>
-
                     </div>
-                     </form>
+        </form>
     </div>
     <script>
         function redirectToIndex() {
             window.location.href = "index.html";
         }
-        
-        document.getElementById('adminLoginForm').addEventListener('submit', function(event) {
+
+        document.getElementById('adminLoginForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent form submission
-            
+
             // Get form data
             const formData = new FormData(this);
             const username = formData.get('admin_username');
@@ -49,24 +50,25 @@
             console.log(password)
 
             // Perform login action
-            fetch('https://recycleapi.igotsolutionsph.com/api/loginAdmin/'+username+'/'+password, {
+            fetch('https://recycleapi.igotsolutionsph.com/api/loginAdmin/' + username + '/' + password, {
                 method: 'GET', // Change method to POST
                 headers: {
                     'Content-Type': 'application/json'
                 }
             })
-            .then(response => {
-                if (response.ok) {
-                    // Redirect to adminDashboard.html on successful login
-                    window.location.href = 'adminDashboard.html';
-                } else {
-                    alert("Error Login, Check your username or password")
-                }
-            })
-            .catch(error => {
-                console.error('Error logging in admin:', error);
-            });
+                .then(response => {
+                    if (response.ok) {
+                        // Redirect to adminDashboard.html on successful login
+                        window.location.href = 'adminDashboard.html';
+                    } else {
+                        alert("Error Login, Check your username or password")
+                    }
+                })
+                .catch(error => {
+                    console.error('Error logging in admin:', error);
+                });
         });
     </script>
 </body>
+
 </html>

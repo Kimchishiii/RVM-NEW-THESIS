@@ -1,8 +1,8 @@
-body{
+body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: linear-gradient(to bottom,#053d02,#187f13,#18d22e,#60ff04);
+    background: linear-gradient(to bottom, #053d02, #187f13, #18d22e, #60ff04);
 }
 
 .logo {
@@ -13,7 +13,8 @@ body{
     margin-right: auto;
     display: block;
 }
-h5{
+
+h5 {
     text-align: center;
     color: rgb(236, 255, 63);
     font-size: 14px;
@@ -21,28 +22,31 @@ h5{
     font-weight: 400;
     font-style: normal;
 }
+
 p {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
-    text-align: left; /* Align text to the left */
+    text-align: left;
+    /* Align text to the left */
     margin-left: 60px;
     margin-bottom: 5px;
     font-size: 13px;
     color: #ffff;
 }
 
-.username_txtbox{
+.username_txtbox {
     border: 1px solid none;
-    background-color: rgb(255, 255, 255) ;
+    background-color: rgb(255, 255, 255);
     border-radius: 30px;
     position: relative;
     margin: 0 auto;
     width: 70%;
     height: 20%;
-    
+
 }
-.username_txtbox input{
+
+.username_txtbox input {
     background: none;
     border: none;
     outline: none;
@@ -56,18 +60,21 @@ p {
 }
 
 .username_txtbox input[type="text"] {
-    height: 30px; /* Adjust the height as needed */
+    height: 30px;
+    /* Adjust the height as needed */
 }
-.password_txtbox{
+
+.password_txtbox {
     border: 1px solid none;
-    background-color: rgb(255, 255, 255) ;
+    background-color: rgb(255, 255, 255);
     border-radius: 30px;
     position: relative;
     margin: 0 auto;
     width: 70%;
     height: 20%;
 }
-.password_txtbox input{
+
+.password_txtbox input {
     background: none;
     border: none;
     outline: none;
@@ -81,9 +88,11 @@ p {
 }
 
 .password_txtbox input[type="text"] {
-    height: 30px; /* Adjust the height as needed */
+    height: 30px;
+    /* Adjust the height as needed */
 }
-.loginBtn{
+
+.loginBtn {
     height: 50px;
     width: 40%;
     margin-top: 15px;
@@ -102,6 +111,7 @@ p {
     cursor: pointer;
     border-radius: 30px;
 }
+
 .loginBtn:hover {
     background-color: #0bd830;
     background-position: right;
@@ -113,27 +123,30 @@ p {
     display: grid;
     place-items: center;
     min-height: 100vh;
-  }
-  
-  .login-header{
+}
+
+.login-header {
     margin-top: 15%;
-  }
-  .login-form{
+}
+
+.login-form {
     width: 400px;
     height: 550px;
 }
+
 .login-body {
     margin-top: 5%;
 }
-  form {
-    background-color: linear-gradient(to bottom,#053d02,#187f13,#18d22e,#60ff04);
+
+form {
+    background-color: linear-gradient(to bottom, #053d02, #187f13, #18d22e, #60ff04);
     border-radius: 5%;
     text-align: center;
     width: 50%;
     box-shadow: rgba(0, 0, 0, 0.637) 0px 1px 4px;
-  }
+}
 
-  .GoBackBtn {
+.GoBackBtn {
     height: 50px;
     width: 40%;
     margin-top: 15px;
