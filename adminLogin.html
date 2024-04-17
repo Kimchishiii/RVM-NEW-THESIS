@@ -37,7 +37,7 @@
         function redirectToIndex() {
             window.location.href = "index.html";
         }
-    
+        
         document.getElementById('adminLoginForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent form submission
             
@@ -45,14 +45,15 @@
             const formData = new FormData(this);
             const username = formData.get('admin_username');
             const password = formData.get('admin_password');
-    
+            console.log(username)
+            console.log(password)
+
             // Perform login action
-            fetch('https://recycleapi.igotsolutionsph.com/api/loginAdmin', {
-                method: 'POST', // Change method to POST
+            fetch('https://recycleapi.igotsolutionsph.com/api/loginAdmin/'+username+'/'+password, {
+                method: 'GET', // Change method to POST
                 headers: {
                     'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ username: username, password: password })
+                }
             })
             .then(response => {
                 if (response.ok) {
