@@ -1,67 +1,54 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="logoEarn.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
-    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script type="text/javascript" src="instascan.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    
     <link rel="stylesheet" href="scanQR.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>SCAN QR</title>
 
 </head>
 <body>
     <div class="container"> 
         <div class="row">
-            <div class="col-md-6">
-                <video id="preview" width="100%"></video>
+            <div>
+                <video id="preview"></video>
             </div>
             <div class="col-md-6">
                 <label>SCAN QR CODE</label> 
                 <form action="saveQRDetails.php" method="post"> <!-- Modified action attribute -->
-                    <textarea name="text" id="text" readonly placeholder="Scanned QR Data" class="form-control" rows="5" style="min-width: 250px; min-height: 300px;"></textarea> <!-- Added name attribute -->
-                    <input type="submit" value="Save QR details" class="btn"> <!-- Submit button -->
+                    <textarea name="text" id="text" readonly placeholder="Scanned QR Data" class="form-control" rows="5" style="min-width: 250px; min-height: 300px;"></textarea>
+                    <input type="submit" value="Save QR details" class="btn2"> <!-- Submit button -->
+                    <!-- Added name attribute -->
                 </form>
             </div>
         </div>
-        <form action="adminDashboard.html" method="post">
-            <input type="submit" value="Back to Dashboard" class="btn">
-        </form>   
+        <button type="button" class="GoBackBtn" onclick="redirectToadminDashboard()">Go back to Dasboard</button>
     </div>
-    <script>
-        let scanner;
 
-// Function to check if the user is using a mobile device
-function isMobileDevice() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-}
-
-// Initialize the scanner only if the user is on a mobile device
-if (isMobileDevice()) {
-    scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-    Instascan.Camera.getCameras().then(function (cameras) {
-        if (cameras.length > 0) {
+    <script type="text/javascript">
+        let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+        scanner.addListener('scan', function (content) {
+          console.log(content);
+        });
+        Instascan.Camera.getCameras().then(function (cameras) {
+          if (cameras.length > 0) {
             scanner.start(cameras[0]);
-        } else {
-            alert('No Cameras Found');
-        }
-    }).catch(function (e) {
-        console.error(e);
-    });
-
-    // Add event listener for scanning QR code
-    scanner.addListener('scan', function (content) {
-        // Set the scanned content to the text area
-        document.getElementById('text').value = content;
-    });
-} else {
-    // Hide the video element or show a message indicating that the feature is not available on desktop
-    document.getElementById('preview').style.display = 'none';
-    // You can also show a message indicating that QR scanning is only available on mobile devices
-}
-    </script>
+          } else {
+            console.error('No cameras found.');
+          }
+        }).catch(function (e) {
+          console.error(e);
+        });
+      </script>
 </body>
 </html>

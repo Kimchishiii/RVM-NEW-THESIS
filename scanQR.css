@@ -20,16 +20,68 @@
         .form-control {
             width: 100%;
         }
-        .btn {
-            margin-top: 10px;
+        .btn2 , .btn1{
+            text-decoration: none;
             height: 45px;
-            width: 100%;
+            width: calc(50% - 5px); /* Adjust width to accommodate margin */
+            margin: 10px 5px 30px; /* Shorthand for margin properties */
+            display: inline-block; /* Set display to inline-block */
             border: none;
             outline: none;
             background: #053d02;
+            background-size: 200%;
             color: white;
-            font-size: 16px;
+            font-size: 10px;
+            cursor: pointer;
+            border-radius: 50px;
+            text-align: center;
+            line-height: 45px; 
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
         }
-        .btn:hover {
+        .btn2:hover , .btn1:hover{
             background-color: #0bd830;
+            background-position: right;
+            font-size: 10px;
+            color: gray;
+        }
+
+        .btn1, .btn2 {
+            width: calc(50% - 5px); /* Adjust width to accommodate margin */
+        }
+        
+        .btn1 {
+            margin-right: 5px;
+        }
+        
+        .GoBackBtn {
+            height: 60px;
+            width: 35%;
+            margin-top: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            border: none;
+            outline: none;
+            background: #053d02;
+            background-size: 200%;
+            color: white;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+        
+        .GoBackBtn:hover {
+            background-color: #0bd830;
+            background-position: right;
+            font-size: 14px;
+            color: gray;
+        }
+        #preview{
+            height: 400px;
+            width: 400px;
         }

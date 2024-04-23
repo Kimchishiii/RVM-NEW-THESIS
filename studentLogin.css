@@ -22,7 +22,7 @@ p {
     position: relative;
     margin: 0 auto;
     width: 70%;
-    height: 8%;
+    height: 9%;
 }
 
 .textBoxdiv input {
@@ -39,8 +39,7 @@ p {
 }
 
 .loginBtn {    
-    height: 60px;
-    width: 40%;
+    height: 55px;
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
@@ -141,7 +140,7 @@ p {
     height: 550px;
 }
 .login-body {
-    margin-top: 20px;
+    margin-top: 50px;
 }
 .login-header {
 

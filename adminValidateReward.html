@@ -1,6 +1,10 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <link rel="icon" type="image/x-icon" href="logoEarn.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="adminValidateReward.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,28 +16,32 @@
 </head>
 
 <body>
-    <form>
-        <img src="logoEarn.png" alt="logo" class="logo">
-        <div class="dashboard_container">    
-            <div class="table-container">
-            <table class="studentRewards">
-                <tr>
-                    <th>Student ID</th>
-                    <th>Collected Plastic Bottles</th>
-                    <th>Collected Cans</th>
-                    <th>Equivalent Reward Pts</th>
-                    <th>Status</th>
-                    <th>Unique Identifier</th>
-                </tr>
-                <tbody class="non-scrollable-tbody" id="data"> 
-                </tbody> 
-            </table>
+        <form>
+                <img src="logoEarn.png" alt="logo" class="logo">
             </div>
+            <div class="dashboard_container">    
+                <div class="table-container">
+                <table class="studentRewards">
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Collected Plastic Bottles</th>
+                        <th>Collected Cans</th>
+                        <th>Equivalent Reward Pts</th>
+                        <th>Status</th>
+                        <th>Unique Identifier</th>
+                    </tr>
+                    <tbody class="non-scrollable-tbody" id="data"> 
+                    </tbody> 
+                </table>
+           </div>
+           
                 </div>
-                <button type="button" class="GoBackBtn" onclick="redirectToadminDashboard()">Go Back</button>
-        </div>
-    </form>
-
+                    </div>
+                    <button type="button" class="GoBackBtn" onclick="redirectToadminDashboard()">Go Back</button>
+            </div>
+        </form>
+    </div>
+   
     <script>
 
         function redirectToadminDashboard() {
