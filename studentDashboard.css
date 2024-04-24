@@ -187,6 +187,7 @@ form {
 
 .Id-num-container {
   margin-top: 2%;
+  margin-left: 15%;
   flex-grow: 1;
 }
 
@@ -195,8 +196,9 @@ form {
 }
 
 .textIdnum {
-  width: 35%;
-  text-align: center;
+  width: 45%;
+  text-align: left;
+  
   background-color: transparent;
   color: rgb(255, 255, 255);
   border: transparent;
@@ -212,7 +214,7 @@ form {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 17px;
+  font-size: 13.5px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   /* Add text shadow */
 

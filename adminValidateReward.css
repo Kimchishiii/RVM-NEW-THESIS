@@ -138,8 +138,14 @@ p{
         color: gray;
     }
 
-    
-.form-container {
+    form {
+        background-color: linear-gradient(to bottom, #053d02, #187f13, #18d22e, #60ff04);
+        border-radius: 5%;
+        text-align: center;
+        width: 50%;
+        box-shadow: rgba(0, 0, 0, 0.637) 0px 1px 4px;
+    }
+    .form-container {
     display: grid;
     place-items: center;
     min-height: 100vh;
