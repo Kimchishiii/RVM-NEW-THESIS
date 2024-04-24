@@ -153,3 +153,13 @@ p {
     width: 50%;
     box-shadow: rgba(0, 0, 0, 0.637) 0px 1px 4px;
   }
+  .btn_Help {
+     border: none;
+     background-color: transparent;
+  }
+
+  .buttonHelpContainer {
+    margin-top: 40px;
+    margin-left: 50px;
+
+  }
