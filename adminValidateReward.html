@@ -16,32 +16,32 @@
 </head>
 
 <body>
-        <div class="form-container">
-            <form class="login-form">
+    <div class="form-container">
+        <form class="login-form">
+            <div class="login-header">
                 <img src="logoEarn.png" alt="logo" class="logo">
-            <div class="dashboard_container">    
+            </div>
+            <div class="dashboard_container">
                 <div class="table-container">
-                <table class="studentRewards">
-                    <tr>
-                        <th>Student ID</th>
-                        <th>Collected Plastic Bottles</th>
-                        <th>Collected Cans</th>
-                        <th>Equivalent Reward Pts</th>
-                        <th>Status</th>
-                        <th>Unique Identifier</th>
-                    </tr>
-                    <tbody class="non-scrollable-tbody" id="data"> 
-                    </tbody> 
-                </table>
-           </div>
-           
-                </div>
-                    </div>
+                    <table class="studentRewards">
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Collected Plastic Bottles</th>
+                            <th>Collected Cans</th>
+                            <th>Equivalent Reward Pts</th>
+                            <th>Status</th>
+                            <th>Unique Identifier</th>
+                        </tr>
+                        <tbody class="non-scrollable-tbody" id="data">
+                        </tbody>
+                    </table>
                     <button type="button" class="GoBackBtn" onclick="redirectToadminDashboard()">Go Back</button>
+
+                </div>
             </div>
         </form>
     </div>
-   
+
     <script>
 
         function redirectToadminDashboard() {
@@ -57,7 +57,8 @@
                 'Content-Type': 'application/json'
             }
         })
-            .then(response => { return response.json()
+            .then(response => {
+                return response.json()
             })
             .then(data => {
                 listData = data;
